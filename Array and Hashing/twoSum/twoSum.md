@@ -22,7 +22,8 @@ We lookup and store in a hashmap where: (key, value) --> (element, index)
 
 We loop on the array of numbers, and for each number we wanna know if it's pair exists.
 NOTES:
-1- What's a pair? --> a+b = traget, a and b are pairs so if we are at 'a' we look for its pair, which is 'b'
+1- What's a pair? 
+        --> a+b = traget, a and b are pairs so if we are at 'a' we look for its pair, which is 'b'
 2- If a+b = target, then 'a' and 'b' are complement to each other. (i.e target - b = a "complement of b")
 
 ### Steps of thinking:
@@ -36,12 +37,13 @@ NOTES:
    
    a) We will use a hashmap, storing in it: (key, value) --> (each element in the array, index). that's it, that's the solution :D, but how does it work?, how will this hashmap help?....
    
-   b) We will loop the array but only once (no inner loops :D).
-and for every elment 'a' we calculate the value: 
-  c = target - a (c is the complement of a).
+   b) We will loop the array but only once (no inner loops :D). and for every elment 'a' we calculate the value:
+    c = target - a (c is the complement of a).
 then we look in the hashmap, does 'c' exists in the hashmap?
+
       --->If it doesnt exist in the hashmap then no pair yet.( we have seen 'a' but didn't see the complement, so we don't have the pair yet), then we store 'a' in the hashmap (look at point a).
          --Why do we store 'a' not 'c' in the hashmap?: because we know for sure that 'a' exists in the array not 'c', so we store 'a', and when we continue in the array we will have like a memory of what numbers we have seen so far in the array, and this 'a' might be a part of pair in the future ( look in next line)
+   
       ---> If it does then we have our pair [a,c] and we return the indices (where are they?, see last point)
          --why?: it means we are in a position in the array of nums where the complement of the current element was seen before in the array number because it exists in the hashmap. Now we have two numbers adding up to the target a+c= target, we got the pair, yaaaay💃.
       
