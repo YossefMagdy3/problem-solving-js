@@ -33,7 +33,9 @@ NOTES:
     "this way of comparison is important for the rest of the explanation"
     ***looping is a bad approach because it is slow O(n^2), but will get u the answer correctly.
 2) We can use the second way of comparison to find the better/faster solution.
+   
    a) We will use a hashmap, storing in it: (key, value) --> (each element in the array, index). that's it, that's the solution :D, but how does it work?, how will this hashmap help?....
+   
    b) We will loop the array but only once (no inner loops :D).
 and for every elment 'a' we calculate the value: 
   c = target - a (c is the complement of a).
@@ -44,6 +46,7 @@ then we look in the hashmap, does 'c' exists in the hashmap?
          --why?: it means we are in a position in the array of nums where the complement of the current element was seen before in the array number because it exists in the hashmap. Now we have two numbers adding up to the target a+c= target, we got the pair, yaaaay💃.
       
    c) In this solution we will loop the array only once, and in every element we will do a hashmap lookup.
+   
    d) A hashmap has key and value, the key is obviously each element, then what is the value?
    the value will be the index of the element, why?----> we need the indices because the return value in this problem are the indices of the pair.
  so when we find the pair the indices will be:
